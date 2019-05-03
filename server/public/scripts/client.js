@@ -15,14 +15,21 @@ function setupClickListeners() {
     // get user input and put in an object
     // NOT WORKING YET :(
     // using a test object
+    let name = $('#nameIn').val();
+    let age = $('#ageIn').val();
+    let gender = $('#genderIn').val();
+    let readyForTransfer = $('#readyForTransferIn').val();
+    let notes = $('#notesIn').val();
+
     let koalaToSend = {
-      name: 'testName',
-      age: 'testName',
-      gender: 'testName',
-      readyForTransfer: 'testName',
-      notes: 'testName',
+      name,
+      age,
+      gender,
+      readyForTransfer,
+      notes
     };
     // call saveKoala with the new obejct
+
     saveKoala( koalaToSend );
   }); 
 }
@@ -43,5 +50,36 @@ function getKoalas(){
 function saveKoala( newKoala ){
   console.log( 'in saveKoala', newKoala );
   // ajax call to server to get koalas
- 
+  $.ajax({
+    type: 'POST',
+    url: '/koalas',
+    data: newKoala
+}).then(function(response) {
+    getKoalas();
+})
 }
+
+function render(arrayFromDatabase) {
+  // Find container, and wipe out all its children
+  $('#viewKoalas').empty();
+
+  // The argument above, called arrayFromDatabase,
+  // has an array of objects, and for each object
+  // do the things in the loop
+  for (let koalaholla of arrayFromDatabase) {
+      // Add a new div and children to container,
+      // for each item inside the array
+      $('#viewKoalas').append(`
+          <tr>
+              <td>${koalaholla.name}</td>
+              <td>${koalaholla.gender}</td>
+              <td>${koalaholla.age}</td>
+              <td>${koalaholla.readyForTransfer}<button class="transfer">transfer</button></td>
+              <td>${koalaholla.notes}</td>
+
+          </tr>
+      `);
+  }
+}
+
+
