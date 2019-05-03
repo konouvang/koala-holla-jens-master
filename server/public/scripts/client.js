@@ -3,11 +3,12 @@ console.log( 'js' );
 $( document ).ready( function(){
   console.log( 'JQ' );
   // Establish Click Listeners
-  setupClickListeners()
+  setupClickListeners();
   // load existing koalas on page load
   getKoalas();
   $('#viewKoalas').on('click', '.js-btn-remove', removeKoala); // this will be our delete route
   $('#viewKoalas').on('click', '.transfer', updateKoala);
+
 }); // end doc ready
 
 function setupClickListeners() {
@@ -19,14 +20,14 @@ function setupClickListeners() {
     let name = $('#nameIn').val();
     let age = $('#ageIn').val();
     let gender = $('#genderIn').val();
-    let readyToTransfer = $('#readyForTransferIn').val();
+    let readyForTransfer = $('#readyForTransferIn').val();
     let notes = $('#notesIn').val();
 
     let koalaToSend = {
       name,
       age,
       gender,
-      readyToTransfer,
+      readyForTransfer,
       notes
     };
     // call saveKoala with the new obejct
