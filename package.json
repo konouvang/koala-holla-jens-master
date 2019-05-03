@@ -1,7 +1,7 @@
 {
   "name": "koalla_holla",
   "version": "1.0.0",
-  "description": "",
+  "description": "This must stop: --------------- ![Nevar again](https://i.makeagif.com/media/8-22-2014/GO_DT4.gif)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,5 +11,13 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/konouvang/koala-holla-jens-master.git"
+  },
+  "bugs": {
+    "url": "https://github.com/konouvang/koala-holla-jens-master/issues"
+  },
+  "homepage": "https://github.com/konouvang/koala-holla-jens-master#readme"
 }
