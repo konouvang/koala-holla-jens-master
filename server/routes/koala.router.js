@@ -6,7 +6,7 @@ const koalaRouter = express.Router();
 const pool = require('../modules/pool');
 
 // GET
-router.get('/', (req,res) => {
+koalaRouter.get('/', (req,res) => {
     // Builds string to use in database later
     // This string will be used to get all data from the
     // restaurants table
@@ -30,7 +30,7 @@ router.get('/', (req,res) => {
 });
 
 // POST
-router.post('/', (req,res) => {
+koalaRouter.post('/', (req,res) => {
     // Create a variable that has a name reflective of the name it
     // had on the client side. Set this equal to the req.body,
     // which was provided to us by body-parser
