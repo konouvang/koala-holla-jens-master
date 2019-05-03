@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Koalla Holla</title>
-    <script src="vendors/jquery-3.3.1.min.js" charset="utf-8"></script>
-    <script src="scripts/client.js" charset="utf-8"></script>
-    <link rel="stylesheet" href="styles/styles.css">
-  </head>
-  <body>
-    <header>
-      <img src="images/icon.png" class="icon" />
+
+<head>
+  <meta charset="utf-8">
+  <title>Koalla Holla</title>
+  <script src="vendors/jquery-3.3.1.min.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="vendors/bootstrap.min.css">
+  <script src="scripts/client.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <header class="jumbotron">
+      <img src="images/icon.png" class="icon media media-left" />
       <h1>Koala Holla</h1>
       <h3>1976 Llama Comma Drive</h2>
-      <h3>Walla Walla, WA</h2>
+        <h3>Walla Walla, WA</h2>
     </header>
     <section id="addKoala">
       <h2>Add Koala</h2>
@@ -21,23 +25,26 @@
       <input type="text" id="genderIn" value="" placeholder="Gender">
       <input type="text" id="readyForTransferIn" value="" placeholder="Transfer">
       <input type="text" id="notesIn" value="" placeholder="Notes">
-      <button type="button" id="addButton">Add Koala</button>
+      <button type="button" id="addButton" class="btn btn-success">Add Koala</button>
     </section>
     <section>
       <h2>All Koalas</h2>
-      <table>
-        <thead>
+      <table class="table table-dark table-border">
+        <thead thread-light>
           <tr>
-            <th>Name</th>
-            <th>Age</th>
-            <th>Gender</th>
-            <th>Ready for Transfer</th>
-            <th>Notes</th>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Ready for Transfer</th>
+            <th scope="col">Notes</th>
           </tr>
         </thead>
         <tbody id="viewKoalas">
         </tbody>
       </table>
     </section>
-  </body>
+  </div>
+
+</body>
+
 </html>

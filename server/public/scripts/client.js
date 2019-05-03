@@ -83,13 +83,13 @@ function render(arrayFromDatabase) {
       // Add a new div and children to container,
       // for each item inside the array
       $('#viewKoalas').append(`
-          <tr data-id="${koalaholla.id}">
+          <tr class="table" data-id="${koalaholla.id}">
               <td>${koalaholla.name}</td>
               <td>${koalaholla.gender}</td>
               <td>${koalaholla.age}</td>
-              <td>${koalaholla.readyForTransfer}<button class="transfer">transfer</button></td>
+              <td>${koalaholla.readyForTransfer}<button class="transfer btn btn-primary">Transfer</button></td>
               <td>${koalaholla.notes}</td>
-              <td><button class = "js-btn-remove" >Remove</button></td>
+              <td><button class = "js-btn-remove btn btn-danger" >Remove</button></td>
 
           </tr>
       `);
