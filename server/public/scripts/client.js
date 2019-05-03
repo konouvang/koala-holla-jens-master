@@ -30,7 +30,14 @@ function setupClickListeners() {
 function getKoalas(){
   console.log( 'in getKoalas' );
   // ajax call to server to get koalas
-  
+  $.ajax({
+    type: 'GET',
+    url: '/koalas'
+}).then(function(arrayFromDatabase) {
+    // Take the data from the server (that we got from the
+    // database), and send that over to the render function.
+    render(arrayFromDatabase);
+});
 } // end getKoalas
 
 function saveKoala( newKoala ){
