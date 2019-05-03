@@ -18,14 +18,14 @@ function setupClickListeners() {
     let name = $('#nameIn').val();
     let age = $('#ageIn').val();
     let gender = $('#genderIn').val();
-    let readyForTransfer = $('#readyForTransferIn').val();
+    let readyToTransfer = $('#readyForTransferIn').val();
     let notes = $('#notesIn').val();
 
     let koalaToSend = {
       name,
       age,
       gender,
-      readyForTransfer,
+      readyToTransfer,
       notes
     };
     // call saveKoala with the new obejct

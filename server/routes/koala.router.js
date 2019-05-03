@@ -39,13 +39,13 @@ koalaRouter.post('/', (req,res) => {
     // Setting up the query string used for SQL later to save the 
     // data in. Note the $1,$2,$3 will eventually map to values
     // we enter when we get to the actual query
-    const queryString = `INSERT INTO restaurants (name, gender, age, ready_to_transfer, notes)
+    const queryString = `INSERT INTO restaurants (name, gender, age, readyToTransfer, notes)
                     VALUES ($1,$2,$3,$4,$5);`;
 
     // Hey connection to the database, run a query with the
     // string we built above. Mapping the values inside the array
     // in the order they are provided.
-    pool.query(queryString, [koalaObject.name, koalaObject.gender, koalaObject.age, koalaObject.ready_to_transfer, koalaObject.notes])
+    pool.query(queryString, [koalaObject.name, koalaObject.gender, koalaObject.age, koalaObject.readyToTransfer, koalaObject.notes])
         .then((response) => {
             // 201 tells the client that the server was able to
             // save to the database. 'Created' is what the client sees
