@@ -6,6 +6,7 @@ $( document ).ready( function(){
   setupClickListeners()
   // load existing koalas on page load
   getKoalas();
+  $('#viewKoalas').on('click', '.js-btn-remove', removeKoala); // this will be our delete route
 
 }); // end doc ready
 
@@ -70,16 +71,28 @@ function render(arrayFromDatabase) {
       // Add a new div and children to container,
       // for each item inside the array
       $('#viewKoalas').append(`
-          <tr>
+          <tr data-id="${koalaholla.id}">
               <td>${koalaholla.name}</td>
               <td>${koalaholla.gender}</td>
               <td>${koalaholla.age}</td>
               <td>${koalaholla.readyForTransfer}<button class="transfer">transfer</button></td>
               <td>${koalaholla.notes}</td>
+              <td><button class = "js-btn-remove" >Remove</button></td>
 
           </tr>
       `);
   }
 }
 
+function removeKoala() {
+  const koalaId = $(this).parent().parent().data('id');
+    console.log(koalaId);
+    console.log('it works');
 
+    $.ajax({
+        type: 'DELETE',
+        url: '/koalas/delete/' + koalaId
+    }).then(function(response) {
+        getKoalas();
+    })
+} // this is for the client side

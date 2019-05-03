@@ -61,5 +61,15 @@ koalaRouter.post('/', (req,res) => {
 
 
 // DELETE
+koalaRouter.delete('/delete/:id', (req, res) => {
+    const queryString = `DELETE FROM "koalaholla" WHERE id=$1;`;
 
+    pool.query(queryString, [req.params.id])
+        .then((response) => {
+            res.sendStatus(200);
+        })
+        .catch((err) => {
+            console.log('Error delete: '.err);
+        });
+}); // this is for the router
 module.exports = koalaRouter;
