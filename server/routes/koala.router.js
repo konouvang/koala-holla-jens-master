@@ -10,7 +10,7 @@ koalaRouter.get('/', (req,res) => {
     // Builds string to use in database later
     // This string will be used to get all data from the
     // restaurants table
-    const queryString = `SELECT * FROM koalaholla;`;
+    const queryString = `SELECT * FROM koalaholla ORDER BY "name" ASC;`;
 
     // Use the connection from the database (called 'pool')
     // and use the query string above, to get the data
@@ -73,3 +73,16 @@ koalaRouter.delete('/delete/:id', (req, res) => {
         });
 }); // this is for the router
 module.exports = koalaRouter;
+
+koalaRouter.put('/readyForTransfer/:id', (req,res) => {
+    const queryString = `UPDATE "koalaholla" SET "readyForTransfer"=true WHERE id=$1;`;
+
+    pool.query(queryString, [req.params.id])
+        .then((response) => {
+            res.sendStatus(200);
+        })
+        .catch((err) => {
+            console.log('Error updating :', err);
+            res.sendStatus(500);
+        });
+});
